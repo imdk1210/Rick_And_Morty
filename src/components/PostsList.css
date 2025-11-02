@@ -51,3 +51,25 @@
   line-height: 1.6;
   margin-bottom: 15px;
 }
+
+.post-card button {
+  width: 100%;
+  margin-top: 10px;
+  background: rgba(168, 224, 99, 0.15) !important;
+  border: 1px solid #A8E063 !important;
+  color: #A8E063 !important;
+  padding: 8px 20px !important;
+  font-size: 14px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-family: 'Comic Neue', sans-serif !important;
+  transition: all 0.3s ease !important;
+  font-weight: normal !important;
+  box-shadow: none !important;
+}
+
+.post-card button:hover {
+  background: rgba(168, 224, 99, 0.25) !important;
+  border-color: #00C851 !important;
+  transform: none !important;
+}
