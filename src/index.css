@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Comic Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,4 +20,28 @@ code {
 
 * {
   box-sizing: border-box;
+}
+
+/* Общие стили для кнопок */
+button {
+  background: linear-gradient(135deg, #00C851 0%, #A8E063 100%);
+  border: 2px solid #7B2CBF;
+  color: #1a1a2e;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Comic Neue', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(168, 224, 99, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #A8E063 0%, #00C851 100%);
+  box-shadow: 0 0 20px rgba(168, 224, 99, 0.6);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
 }
