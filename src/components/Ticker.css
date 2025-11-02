@@ -1,0 +1,31 @@
+.ticker-container {
+    overflow: hidden;
+    white-space: nowrap;
+    background: transparent;
+    color: #A8E063;
+    padding: 15px 0;
+    border-bottom: 2px solid #A8E063;
+    font-family: 'Comic Neue', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0 0 5px rgba(168, 224, 99, 0.3);
+    position: relative;
+    width: 100%;
+}
+
+.ticker-text {
+    display: inline-block;
+    letter-spacing: 2px;
+    animation: ticker-scroll 25s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
