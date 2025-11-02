@@ -6,6 +6,7 @@ import PostsList from "./components/PostsList";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MoviePage from "./pages/MoviesPage";
 import Detail from "./pages/Detail";
+import FavoritesPage from "./pages/FavoritePage";
 import "./App.css";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
                 </div>
               }
             />
+            <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/movies" element={<MoviePage />} />
           </Routes>
         </main>
