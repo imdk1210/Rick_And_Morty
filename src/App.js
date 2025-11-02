@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MoviePage from "./pages/MoviesPage";
 import Detail from "./pages/Detail";
 import FavoritesPage from "./pages/FavoritePage";
+import RegistrationPage from "./pages/RegistrationPage";
+import Login from "./pages/Login";
+import Users from "./pages/Users";
 import TicketPage from "./components/TicketPage";
 import "./App.css";
 
@@ -41,7 +44,10 @@ function App() {
               }
             />
             <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="/register" element={<RegistrationPage />} />
             <Route path="/movies" element={<MoviePage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/users" element={<Users />} />
             <Route path="/tickets" element={<TicketPage />} />
           </Routes>
         </main>
