@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
@@ -11,15 +12,67 @@ function Header() {
             top: 0,
             zIndex: 1000
         }}>
-            <h1 style={{ 
-                textAlign: 'center',
-                color: '#A8E063',
-                fontFamily: "sans-serif",
-                fontSize: '32px',
-                margin: 0
+            <nav style={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                flexWrap: 'wrap',
+                gap: '15px'
             }}>
-                Portal Cinema IT-122
-            </h1>
+                <Link 
+                    to="/" 
+                    style={{ 
+                        margin: '5px 10px', 
+                        color: '#A8E063',
+                        textDecoration: 'none',
+                        padding: '8px 15px',
+                        borderRadius: '8px',
+                        border: '2px solid transparent',
+                        transition: 'all 0.3s ease',
+                        fontFamily: "sans-serif",
+                        fontWeight: 'bold',
+                        fontSize: '16px'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.target.style.background = 'rgba(168, 224, 99, 0.2)';
+                        e.target.style.borderColor = '#A8E063';
+                        e.target.style.boxShadow = '0 0 15px rgba(168, 224, 99, 0.5)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.background = 'transparent';
+                        e.target.style.borderColor = 'transparent';
+                        e.target.style.boxShadow = 'none';
+                    }}
+                >
+                    🏠 Главная
+                </Link>
+                <Link 
+                    to="/movies" 
+                    style={{ 
+                        margin: '5px 10px', 
+                        color: '#A8E063',
+                        textDecoration: 'none',
+                        padding: '8px 15px',
+                        borderRadius: '8px',
+                        border: '2px solid transparent',
+                        transition: 'all 0.3s ease',
+                        fontFamily: "sans-serif",
+                        fontWeight: 'bold',
+                        fontSize: '16px'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.target.style.background = 'rgba(168, 224, 99, 0.2)';
+                        e.target.style.borderColor = '#A8E063';
+                        e.target.style.boxShadow = '0 0 15px rgba(168, 224, 99, 0.5)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.background = 'transparent';
+                        e.target.style.borderColor = 'transparent';
+                        e.target.style.boxShadow = 'none';
+                    }}
+                >
+                    🎬 Фильмы
+                </Link>
+            </nav>
         </header>
     );
 }

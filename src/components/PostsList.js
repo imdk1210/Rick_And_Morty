@@ -1,23 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "../store/slices/postsSlice";
 import "./PostsList.css";
 
 function PostList(){
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+    const {items: posts, loading, error} = useSelector((state)=>state.post);
 
     useEffect(()=>{
-        fetch("https://jsonplaceholder.typicode.com/posts?_limit=6")
-        .then((res) => res.json())
-        .then((data) => {
-            setPosts(data);
-            setLoading(false);
-        })
-        .catch((err) => {
-            setError(err.message);
-            setLoading(false);
-        });
-    }, []);
+        dispatch(fetchPosts());
+    }, [dispatch]);
 
     if (loading) return (
         <div style={{ textAlign: 'center', padding: '50px', color: '#A8E063', fontFamily: "'Comic Neue', sans-serif", fontSize: '24px' }}>
