@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-//Загрузка фильмов
+//Загрузка эпизодов
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async ()=>{
     const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=6");
     return await res.json();

@@ -2,7 +2,7 @@ import React from "react";
 import "./Ticker.css";
 
 function Ticker(){
-    const text = "WUBBA LUBBA DUB DUB! Добро пожаловать в мультивселенную Portal Cinema IT-122! Готовы к приключениям? 🚀 ";
+    const text = "WUBBA LUBBA DUB DUB! Добро пожаловать на фанатский сайт Рика и Морти! Исследуй все эпизоды мультивселенной! 🚀 ";
     
     return(
         <div className="ticker-container">

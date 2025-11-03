@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-//Получаем список билетов fake api
+//Получаем список эпизодов для просмотра fake api
 
 export const fetchTickets = createAsyncThunk("tickets/fetchTickets", async ()=>{
     const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=511");
     return await res.json()
 });
 
-//Асинхронное бронирование 
+//Асинхронное добавление в список просмотра 
 
 export const bookTicket = createAsyncThunk("tickets/bookTicket", async (ticketId)=>{
     //Иммитация запроса на сервер
@@ -42,7 +42,7 @@ const ticketSlice = createSlice({
         })
 
 
-        // Логика на бронирование билетов
+        // Логика на добавление эпизодов в список просмотра
         .addCase(bookTicket.pending, (state)=>{
             state.booking = true
         })

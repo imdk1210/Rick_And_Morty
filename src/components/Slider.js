@@ -1,9 +1,52 @@
 import React, { useState, useEffect } from "react";
 
+// Массив изображений Рика и Морти для карусели
+// Если у вас есть локальные файлы, поместите их в папку public/images/ 
+// и используйте пути вида '/images/filename.jpg'
+// Или используйте прямые URL изображений из интернета
+
+// ========================================
+// НАСТРОЙКА ИЗОБРАЖЕНИЙ ДЛЯ КАРУСЕЛИ
+// ========================================
+// Вариант 1: Используйте локальные файлы (поместите их в public/images/)
+// Вариант 2: Используйте прямые URL изображений из интернета
+// Вариант 3: Используйте URL из бесплатных сервисов (Imgur, Unsplash и т.д.)
+
+// РЕКОМЕНДУЕТСЯ: Замените эти пути на URL ваших изображений или добавьте файлы в public/images/
+// Пример использования URL:
+// const images = [
+//     'https://example.com/path/to/image1.jpg',
+//     'https://example.com/path/to/image2.jpg',
+//     ...
+// ];
+
+// ========================================
+// МАССИВ ИЗОБРАЖЕНИЙ ДЛЯ КАРУСЕЛИ
+// ========================================
+// Если вы используете локальные файлы, поместите их в папку public/images/
+// и обновите пути ниже на имена ваших файлов
 const images = [
-    'https://s4.afisha.ru/mediastorage/62/d1/da2b0810e19c40e0ab76fa58d162.jpg',
-    'https://thumbs.dfs.ivi.ru/storage0/contents/d/3/cb359e5712417994c4a2ac58bacf47.jpg',
-    'https://cdn-ksvod.kyivstar.ua/content/HLS/VOD/IMAGE5/6803760d64f4429560f95ce6/IMAGE_2_3_XL.jpg'
+    '/images/rick-morty-freddy.jpg',        // Рик, Морти и инопланетянин с лезвиями
+    '/images/rick-morty-spaceship.jpg',     // Рик и Морти в космическом корабле
+    '/images/reporter-giant-head.jpg',      // Репортер и гигантская голова над городом
+    '/images/animals-mech-suits.jpg',       // Два животных в механических экзоскелетах
+    '/images/rick-nimbus-shop.jpg'          // Рик и Мистер Нимбус в антикварной лавке
+];
+
+// Если вы хотите использовать URL напрямую, замените массив выше на:
+// const images = [
+//     'https://your-image-url-1.jpg',
+//     'https://your-image-url-2.jpg',
+//     // ... и так далее
+// ];
+
+// Описания для улучшения доступности
+const imageDescriptions = [
+    'Рик и Морти в зловещей сцене с инопланетянином, похожим на Фредди Крюгера, в красном свете',
+    'Рик и Морти управляют космическим кораблем, окруженные зеленой жидкостью',
+    'Репортер сообщает о гигантской голове, парящей над городскими зданиями',
+    'Два маленьких животных в механических экзоскелетах в лабораторной обстановке',
+    'Рик Санчез и Мистер Нимбус в антикварной лавке, полной странных артефактов'
 ];
 
 function Slider() {
@@ -51,7 +94,7 @@ function Slider() {
             }}>
                 <img
                     src={images[index]}
-                    alt="slide"
+                    alt={imageDescriptions[index] || `Эпизод Рика и Морти ${index + 1}`}
                     style={{
                         width: '100%',
                         maxWidth: '800px',
@@ -61,7 +104,18 @@ function Slider() {
                         height: '500px',
                         objectFit: 'cover',
                         border: '3px solid #A8E063',
-                        boxShadow: '0 0 30px rgba(168, 224, 99, 0.5)'
+                        boxShadow: '0 0 30px rgba(168, 224, 99, 0.5)',
+                        backgroundColor: 'rgba(26, 26, 46, 0.5)'
+                    }}
+                    onError={(e) => {
+                        // Если изображение не загрузилось, показываем placeholder с описанием
+                        if (!e.target.src.includes('placeholder') && !e.target.src.includes('data:')) {
+                            const currentIndex = index;
+                            const episodeNames = ['Фредди-инопланетянин', 'Космический корабль', 'Гигантская голова', 'Механические костюмы', 'Антикварная лавка'];
+                            e.target.src = `https://via.placeholder.com/800x500/1a1a2e/A8E063?text=${encodeURIComponent(episodeNames[currentIndex] + ' - Изображение ' + (currentIndex + 1))}`;
+                            e.target.style.opacity = '1';
+                            e.target.alt = 'Placeholder: ' + imageDescriptions[currentIndex];
+                        }
                     }}
                 />
                 <div style={{ marginTop: '20px', display: 'flex', gap: '15px', justifyContent: 'center' }}>

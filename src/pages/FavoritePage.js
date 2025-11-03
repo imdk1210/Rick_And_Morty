@@ -17,7 +17,7 @@ function FavoritesPage() {
                 textShadow: '0 0 6px rgba(168, 224, 99, 0.25)',
                 marginBottom: '30px'
             }}>
-                ⭐ Избранные Вселенные
+                ⭐ Избранные Эпизоды
             </h2>
             {favorites.length === 0 ? (
                 <p style={{ 
@@ -27,7 +27,7 @@ function FavoritesPage() {
                     fontFamily: "'Comic Neue', sans-serif",
                     marginTop: '50px'
                 }}>
-                    Портал пуст... Добавьте фильмы в избранное!
+                    Портал пуст... Добавьте эпизоды в избранное!
                 </p>
             ) : (
                 <div
@@ -37,9 +37,9 @@ function FavoritesPage() {
                         gap: "20px",
                     }}
                 >
-                    {favorites.map((movie) => (
+                    {favorites.map((episode) => (
                         <div
-                            key={movie.id}
+                            key={episode.id}
                             style={{
                                 background: "linear-gradient(135deg, rgba(168, 224, 99, 0.1) 0%, rgba(123, 44, 191, 0.1) 100%)",
                                 padding: "20px",
@@ -66,20 +66,20 @@ function FavoritesPage() {
                                 textShadow: '0 0 5px rgba(168, 224, 99, 0.25)',
                                 marginBottom: '12px'
                             }}>
-                                🎬 {movie.title}
+                                📺 {episode.title}
                             </h3>
                             <p style={{
                                 color: 'rgba(168, 224, 99, 0.9)',
                                 fontFamily: "'Comic Neue', sans-serif",
                                 marginBottom: '15px'
                             }}>
-                                {movie.body.slice(0, 100)}...
+                                {episode.body.slice(0, 100)}...
                             </p>
                             <button 
-                                onClick={() => dispatch(removeFavourite(movie.id))}
+                                onClick={() => dispatch(removeFavourite(episode.id))}
                                 style={{ width: '100%' }}
                             >
-                                🗑️ Удалить из портала
+                                🗑️ Удалить из избранного
                             </button>
                         </div>
                     ))}

@@ -2,15 +2,16 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import PostsList from "./components/PostsList";
+import EpisodesCarousel from "./components/EpisodesCarousel";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MoviePage from "./pages/MoviesPage";
-import Detail from "./pages/Detail";
+import EpisodesPage from "./pages/EpisodesPage";
+import EpisodesListPage from "./pages/EpisodesListPage";
+import EpisodeDetail from "./pages/EpisodeDetail";
+import CharacterDetail from "./pages/CharacterDetail";
 import FavoritesPage from "./pages/FavoritePage";
 import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/Login";
 import Users from "./pages/Users";
-import TicketPage from "./components/TicketPage";
 import "./App.css";
 
 function App() {
@@ -33,22 +34,23 @@ function App() {
           boxSizing: 'border-box'
         }}>
           <Routes>
-            <Route path="/movies/:id" element={<Detail />} />
+            <Route path="/episodes/:id" element={<EpisodeDetail />} />
+            <Route path="/characters/:id" element={<CharacterDetail />} />
             <Route
               path="/"
               element={
                 <div style={{ width: '100%' }}>
                   <HomePage />
-                  <PostsList />
+                  <EpisodesCarousel />
                 </div>
               }
             />
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/register" element={<RegistrationPage />} />
-            <Route path="/movies" element={<MoviePage />} />
+            <Route path="/episodes" element={<EpisodesPage />} />
+            <Route path="/episodes-list" element={<EpisodesListPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/users" element={<Users />} />
-            <Route path="/tickets" element={<TicketPage />} />
           </Routes>
         </main>
         <Footer />

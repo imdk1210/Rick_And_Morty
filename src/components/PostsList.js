@@ -15,7 +15,7 @@ function PostList(){
 
     if (loading) return (
         <div style={{ textAlign: 'center', padding: '50px', color: '#A8E063', fontFamily: "'Comic Neue', sans-serif", fontSize: '24px' }}>
-            Загрузка мультивселенных...
+            Загрузка эпизодов из мультивселенной...
         </div>
     )
     if (error) return (
@@ -26,7 +26,7 @@ function PostList(){
 
     return (
         <div className="posts-list">
-            <h2>Популярные фильмы</h2>
+            <h2>Популярные эпизоды</h2>
             <div className="posts-grid">
                 {posts.map((post)=>{
                     const isFav = favorites.some((fav)=> fav.id === post.id);

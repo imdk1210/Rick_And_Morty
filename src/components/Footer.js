@@ -11,7 +11,7 @@ function Footer(){
             boxShadow: '0 -4px 20px rgba(168, 224, 99, 0.2)'
         }}>
             <p style={{ margin: 0 }}>
-                2025 Portal Cinema IT-122 | Вселенная бесконечна!
+                2025 Rick & Morty Fan Site | Wubba Lubba Dub Dub! 🚀
             </p>
         </footer>
     );
